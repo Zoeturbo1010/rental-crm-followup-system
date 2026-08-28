@@ -1,0 +1,55 @@
+/* Workbench schedule: keep every booking card within the timeline panel. */
+.schedule-blocks {
+  height: 138px;
+  overflow: hidden;
+}
+
+.booking {
+  box-sizing: border-box;
+  min-height: 68px;
+  max-height: 82px;
+  overflow: hidden;
+}
+
+.booking span {
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.booking small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.b2 {
+  top: 54px;
+}
+
+.calendar-legend {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+}
+
+@media (max-width: 620px) {
+  .schedule-blocks {
+    display: grid;
+    height: auto;
+    min-height: 0;
+    gap: 7px;
+    background: none;
+  }
+
+  .booking,
+  .b1,
+  .b2,
+  .b3 {
+    position: static;
+    width: 100%;
+    max-height: none;
+  }
+}

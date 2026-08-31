@@ -5,7 +5,8 @@ import "./chrome-polish.css";
 import "./overlay-layout.css";
 
 export const metadata: Metadata = {
-  title: "CRM 跟进系统｜租赁客户转化管理",
+  title: "客户跟进系统",
+  applicationName: "客户跟进系统",
   description: "现代化租房平台客户关系与成交管理系统。",
   icons: {
     icon: "/favicon.svg",

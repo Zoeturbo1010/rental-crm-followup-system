@@ -1,4 +1,4 @@
-# 租房 CRM 跟进系统
+# 客户跟进系统
 
 一套面向租房平台团队的中文 CRM 高保真前端原型，使用模拟数据完整演示「平台进线 → 询问需求 → 加企微 → 推荐房源 → 预约看房 → 看房回访 → 成交结算」主流程。本作品集版本暂不纳入“不加 V”分支，重点展示加企微后的跟进提效与跨模块联动。
 
@@ -34,7 +34,7 @@ npm run dev
 
 ## 在线预览
 
-[打开租房 CRM 跟进系统](https://rental-crm-followup-system.zoeturbo1010.workers.dev)
+[打开客户跟进系统](https://rental-crm-followup-system.zoeturbo1010.workers.dev)
 
 ## 构建校验
 

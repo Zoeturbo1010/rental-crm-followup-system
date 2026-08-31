@@ -187,7 +187,7 @@ export default function Home() {
   const overlayOpen = Boolean(selected || dealModal || clientModal || notificationOpen || reminderSettingsOpen);
   return <main className="app-shell">
     <aside className="sidebar" inert={overlayOpen}>
-      <div className="brand"><span className="brand-mark">C</span><span>CRM 跟进系统</span></div>
+      <div className="brand"><span className="brand-mark">C</span><span>客户跟进系统</span></div>
       <div className="workspace"><span className="team-dot">K</span><div><b>北京租赁事业部</b><small>林晓 · 顾问</small></div><span>⌄</span></div>
       <nav aria-label="业务导航">
         <p className="sidebar-section-label">业务工作区</p>

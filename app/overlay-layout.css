@@ -1,0 +1,189 @@
+/* App chrome stays below every dialog, including dialogs opened from drawers. */
+:root {
+  --overlay-gap: clamp(12px, 2.5vw, 24px);
+  --layer-drawer: 100;
+  --layer-modal: 120;
+  --layer-followup: 140;
+  --layer-notification: 160;
+  --layer-toast: 180;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html:has(.modal-backdrop, .drawer-backdrop, .followup-backdrop, .notification-backdrop, .portfolio-guide-backdrop),
+body:has(.modal-backdrop, .drawer-backdrop, .followup-backdrop, .notification-backdrop, .portfolio-guide-backdrop) {
+  overflow: hidden;
+}
+
+.drawer-backdrop { z-index: var(--layer-drawer); }
+.modal-backdrop { z-index: var(--layer-modal); }
+.followup-backdrop { z-index: var(--layer-followup); }
+.notification-backdrop,
+.portfolio-guide-backdrop { z-index: var(--layer-notification); }
+.toast { z-index: var(--layer-toast); }
+
+.modal-backdrop,
+.followup-backdrop,
+.portfolio-guide-backdrop {
+  position: fixed;
+  inset: 0;
+  padding: var(--overlay-gap);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.deal-modal,
+.new-client-modal,
+.reminder-modal,
+.notification-center,
+.portfolio-guide {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: calc(100vh - var(--overlay-gap) - var(--overlay-gap));
+  max-height: calc(100dvh - var(--overlay-gap) - var(--overlay-gap));
+  overflow: hidden;
+}
+
+.deal-modal > header,
+.new-client-modal > header,
+.reminder-modal > header,
+.notification-center > header,
+.portfolio-guide > header,
+.deal-modal > footer,
+.new-client-modal > footer,
+.reminder-modal > footer,
+.notification-center > footer,
+.portfolio-guide > footer {
+  flex: 0 0 auto;
+  gap: 12px;
+}
+
+.deal-modal > header > div,
+.new-client-modal > header > div,
+.reminder-modal > header > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.deal-modal > .form-scroll,
+.new-client-modal > .form-scroll,
+.reminder-modal > .reminder-rule-list,
+.notification-center > .notification-list,
+.portfolio-guide > .guide-flow {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  max-height: none;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.modal-backdrop .form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.modal-backdrop .field,
+.modal-backdrop .field > div,
+.modal-backdrop input,
+.modal-backdrop select,
+.followup-modal label,
+.followup-modal input,
+.followup-modal select {
+  min-width: 0;
+}
+
+.modal-backdrop textarea,
+.followup-modal textarea {
+  max-width: 100%;
+}
+
+.modal-backdrop .close,
+.drawer-backdrop .close,
+.followup-backdrop .close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+  border-radius: 6px;
+}
+
+.modal-backdrop .close:hover,
+.drawer-backdrop .close:hover {
+  background: #f0f4fa;
+}
+
+.drawer {
+  min-width: 0;
+  max-width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.drawer > header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+  gap: 12px;
+}
+
+.followup-modal {
+  min-width: 0;
+  max-width: 100%;
+  max-height: calc(100vh - var(--overlay-gap) - var(--overlay-gap));
+  max-height: calc(100dvh - var(--overlay-gap) - var(--overlay-gap));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.followup-modal > header,
+.followup-modal > footer {
+  position: sticky;
+  z-index: 2;
+  background: #fff;
+}
+
+.followup-modal > header { top: 0; }
+.followup-modal > footer { bottom: 0; }
+
+.notification-backdrop {
+  padding: var(--overlay-gap);
+}
+
+@media (max-width: 720px) {
+  .modal-backdrop .form-grid,
+  .followup-modal .followup-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .modal-backdrop .form-scroll { padding: 0 18px; }
+
+  .deal-modal > header,
+  .new-client-modal > header,
+  .reminder-modal > header {
+    padding: 16px 18px;
+  }
+
+  .modal-backdrop footer { padding: 12px 18px; flex-wrap: wrap; }
+  .modal-backdrop footer button { min-height: 40px; }
+  .modal-backdrop footer .primary { flex: 1; }
+}
+
+@media (max-height: 480px) {
+  .deal-modal > header,
+  .new-client-modal > header,
+  .reminder-modal > header { padding: 10px 16px; }
+
+  .modal-backdrop footer { padding: 10px 16px; }
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./schedule.css";
 import "./chrome-polish.css";
+import "./overlay-layout.css";
 
 export const metadata: Metadata = {
   title: "CRM 跟进系统｜租赁客户转化管理",

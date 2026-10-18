@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./flow.css";
+import "./workspace-ui.css";
 
 export const metadata: Metadata = {
   title: "客户跟进系统",
